@@ -18,6 +18,7 @@ exports.answer = function (req, res) {
 
 exports.authors = function (req, res) {
 	res.render('quizes/autores', {
-		autores: 'Héctor Navarro'
+		autores: 'Héctor Navarro',
+		imagen: 'https://avatars0.githubusercontent.com/u/3764990?v=3&s=460'
 	});
 }
