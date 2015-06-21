@@ -15,3 +15,9 @@ exports.answer = function (req, res) {
 		});
 	}
 };
+
+exports.authors = function (req, res) {
+	res.render('quizes/autores', {
+		autores: 'Héctor Navarro'
+	});
+}
