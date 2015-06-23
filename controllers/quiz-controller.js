@@ -19,19 +19,34 @@ exports.load = function (req, res, next, quizId) {
 		} else {
 			next(new Error('No existe quizid=' + quizId));
 		}
-	}).catch(function8error) {
+	}).catch(function (error) {
 		next(error);
 	});
 };
 
 exports.index = function (req, res) {
-	models.Quiz.findAll().then(function (quizes) {
-		res.render('quizes/index.ejs', {
-			quizes: quizes
-		}).catch(function (error) {
-			next(error);
+
+	if (req.search) {
+		// TODO: Implementar
+		models.Quiz.findAll({
+			where: ["pregunta like ?", "%" + req.busqueda.replace('', '%') + "%"]
+		}).then(function (quizes) {
+			res.render('quizes/index.ejs', {
+				quizes: quizes
+			}).catch(function (error) {
+				next(error);
+			});
 		});
-	})
+	} else {
+
+		models.Quiz.findAll().then(function (quizes) {
+			res.render('quizes/index.ejs', {
+				quizes: quizes
+			}).catch(function (error) {
+				next(error);
+			});
+		})
+	}
 };
 
 exports.show = function (req, res) {
@@ -41,28 +56,6 @@ exports.show = function (req, res) {
 };
 
 exports.answer = function (req, res) {
-	//	if (req.query.respuesta === 'Roma') {
-	//		res.render('quizes/answer', {
-	//			respuesta: 'Correcto'
-	//		});
-	//	} else {
-	//		res.render('quizes/answer', {
-	//			respuesta: 'Incorrecto'
-	//		});
-	//	}
-
-
-	//	models.Quiz.findAll().success(function (quiz) {
-	//		if (req.query.respuesta === quiz[0].respuesta) {
-	//			res.render('quizes/answer', {
-	//				respuesta: 'Correcto'
-	//			});
-	//		} else {
-	//			res.render('quizes/answer', {
-	//				respuesta: 'Incorrecto'
-	//			});
-	//		}
-	//	})
 	var resultado = 'Incorrecto';
 	if (req.query.respuesta === req.quiz.respuesta) {
 		resultado = 'Correcto';
