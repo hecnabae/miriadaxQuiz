@@ -28,6 +28,7 @@ exports.index = function (req, res) {
 
 	if (req.search) {
 		// TODO: Implementar
+		console.log('por aqui');
 		models.Quiz.findAll({
 			where: ["pregunta like ?", "%" + req.busqueda.replace('', '%') + "%"]
 		}).then(function (quizes) {
