@@ -12,6 +12,9 @@ var port = (url[5]||null);
 var host = (url[4]||null);
 var storage = process.env.DATABASE_STORAGE;
 
+var Temas = require('./temas.js');
+exports.Temas = Temas;
+
 // Cargar Modelo ORM
 var sequelize = require('sequelize');
 
@@ -28,6 +31,7 @@ var db = new sequelize(DB_name, user, pwd, {
 // Importar la definición de la tabla Quiz en quiz.js
 var quiz_path = path.join(__dirname, 'quiz');
 var Quiz = db.import(quiz_path);
+
 
 exports.Quiz = Quiz; // exportar definición de la tabla Quiz
 

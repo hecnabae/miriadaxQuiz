@@ -1,4 +1,5 @@
 var models = require('../models/models.js');
+var listaTemas = models.Temas.listaTemas;
 
 exports.load = function (req, res, next, quizId) {
 	models.Quiz.find(quizId).then(function (quiz) {
@@ -77,7 +78,8 @@ exports.new = function (req, res) {
 	);
 	res.render('quizes/new', {
 		quiz: quiz,
-		errors: []
+		errors: [],
+		temas: listaTemas
 	});
 };
 
@@ -88,7 +90,8 @@ exports.create = function (req, res) {
 		if (err) {
 			res.render('quizes/new', {
 				quiz: quiz,
-				errors: err.errors
+				errors: err.errors,
+				temas: listaTemas
 			});
 		} else {
 			//Guarda en DB los campos pregunta y respuesta de quiz
@@ -105,7 +108,8 @@ exports.edit = function (req, res) {
 	var quiz = req.quiz;
 	res.render('quizes/edit', {
 		quiz: quiz,
-		errors: []
+		errors: [],
+		temas: listaTemas
 	});
 };
 
@@ -117,7 +121,8 @@ exports.update = function (req, res) {
 		if (err) {
 			res.render('quizes/edit', {
 				quiz: req.quiz,
-				errors: err.errors
+				errors: err.errors,
+				temas: listaTemas
 			});
 		} else {
 			req.quiz.save({
