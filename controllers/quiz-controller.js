@@ -25,7 +25,8 @@ exports.load = function (req, res, next, quizId) {
 };
 
 exports.index = function (req, res) {
-	console.log('Objeto: ' + req);
+	console.log('Objeto: ' + req.search);
+	console.log(req.quiz);
 	if (req.search) {
 		// TODO: Implementar
 		console.log('por aqui');
