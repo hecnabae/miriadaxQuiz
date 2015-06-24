@@ -25,13 +25,11 @@ exports.load = function (req, res, next, quizId) {
 };
 
 exports.index = function (req, res) {
-	console.log('Objeto: ' + req.search);
-	console.log(req.quiz);
-	if (req.search) {
+	if (req.query.termino) {
 		// TODO: Implementar
 		console.log('por aqui');
 		models.Quiz.findAll({
-			where: ["pregunta like ?", "%" + req.busqueda.replace('', '%') + "%"]
+			where: ["pregunta like ?", "%" + req.query.termino.replace('', '%') + "%"]
 		}).then(function (quizes) {
 			res.render('quizes/index.ejs', {
 				quizes: quizes
