@@ -115,6 +115,7 @@ exports.edit = function (req, res) {
 exports.update = function (req, res) {
 	req.quiz.pregunta = req.body.quiz.pregunta;
 	req.quiz.respuesta = req.body.quiz.respuesta;
+	req.quiz.indice = req.body.quiz.indice;
 
 //	req.quiz.validate().then(function (err) {
 //		if (err) {
