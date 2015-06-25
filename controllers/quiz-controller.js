@@ -86,7 +86,7 @@ exports.new = function (req, res) {
 exports.create = function (req, res) {
 	var quiz = models.Quiz.build(req.body.quiz);
 
-	quiz.validate().then(function (err) {
+	//quiz.validate().then(function (err) {
 		if (err) {
 			res.render('quizes/new', {
 				quiz: quiz,
@@ -101,7 +101,7 @@ exports.create = function (req, res) {
 				res.redirect('/quizes')
 			})
 		}
-	});
+	//});
 };
 
 exports.edit = function (req, res) {
