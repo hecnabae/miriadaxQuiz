@@ -17,7 +17,6 @@ exports.load = function (req, res, next, quizId) {
 exports.index = function (req, res) {
 	if (req.query.termino) {
 		// TODO: Implementar
-		console.log('por aqui');
 		models.Quiz.findAll({
 			where: ["pregunta like ?", "%" + req.query.termino.replace('', '%') + "%"]
 		}).then(function (quizes) {
@@ -136,7 +135,9 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function (req, res) {
-	req.quiz.destroy().then(function() {
+	req.quiz.destroy().then(function () {
 		res.redirect('/quizes');
-	}).catch(function(error){next(error)});
+	}).catch(function (error) {
+		next(error)
+	});
 }
