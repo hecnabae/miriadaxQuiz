@@ -100,7 +100,7 @@ exports.create = function (req, res) {
 				res.redirect('/quizes')
 			})
 		//}
-	});
+	//});
 };
 
 exports.edit = function (req, res) {
