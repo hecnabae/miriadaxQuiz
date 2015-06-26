@@ -125,7 +125,7 @@ exports.update = function (req, res) {
 			});
 		} else {
 			req.quiz.save({
-					fields: ["pregunta", "respuesta"]
+					fields: ["pregunta", "respuesta", "indice"]
 				})
 				.then(function () {
 					res.redirect('/quizes');
