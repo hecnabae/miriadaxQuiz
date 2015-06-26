@@ -118,24 +118,24 @@ exports.update = function (req, res) {
 	req.quiz.respuesta = req.body.quiz.respuesta;
 	req.quiz.indice = req.body.quiz.indice;
 
-	req.quiz.validate().then(function (err) {;
-		if (err) {
-			res.render('quizes/edit', {
-				quiz: req.quiz,
-				errors: err.errors,
-				indices: listaIndices
+	var error = req.quiz.validate(); //.then(function (err) {;
+	if (error) {
+		res.render('quizes/edit', {
+			quiz: req.quiz,
+			errors: err.errors,
+			indices: listaIndices
+		});
+	} else {
+		req.quiz.save({
+				fields: ["pregunta", "respuesta", "indice"]
+			})
+			.then(function () {
+				res.redirect('/quizes');
 			});
-		} else {
-			req.quiz.save({
-					fields: ["pregunta", "respuesta", "indice"]
-				})
-				.then(function () {
-					res.redirect('/quizes');
-				});
-		}
-	}).catch(function (error) {
-		next(error);
-	});
+	}
+	//	}).catch(function (error) {
+	//		next(error);
+	//	});
 };
 
 exports.destroy = function (req, res) {
