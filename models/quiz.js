@@ -9,8 +9,8 @@ module.exports = function (sequelize, DataTypes) {
 			validate: {notEmpty: {msg: "-> Falta Respuesta"}}
 		},
 		indice:{
-			type: DataTypes.STRING
-//			validate: {notEmpty: {msg: "-> Falta índice"}}
+			type: DataTypes.STRING,
+			validate: {notEmpty: {msg: "-> Falta índice"}}
 		}
 	});
 
