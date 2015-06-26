@@ -71,7 +71,8 @@ exports.new = function (req, res) {
 	var quiz = models.Quiz.build( // crea objeto quiz
 		{
 			pregunta: "Pregunta",
-			respuesta: "Respuesta"
+			respuesta: "Respuesta",
+			indice: "Otro"
 		}
 	);
 	res.render('quizes/new', {
