@@ -75,6 +75,7 @@ exports.new = function (req, res) {
 			indice: "Otro"
 		}
 	);
+	// Abrimos
 	res.render('quizes/new', {
 		quiz: quiz,
 		errors: [],

@@ -3,9 +3,9 @@
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>"/> <p></p>
 <label for="tema" class="rem">Tema</label>
-<select id="tema" name="quiz[tema]">
+<select id="tema" name="quiz[indice]">
 	<% for (var i = 0; i < temas.length; i++) { %>
-    	<option value="<%= temas[i] %>" <%= quiz.tema === temas[i]?'selected=selected':'' %>><%= temas[i] %></option>
+    	<option value="<%= temas[i] %>" <%= quiz.indice === temas[i]?'selected=selected':'' %>><%= temas[i] %></option>
   	<% } %>
 </select>
 <a href="/quizes"><button type="button">Cancelar</button></a>
