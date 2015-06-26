@@ -12,8 +12,8 @@ var port = (url[5]||null);
 var host = (url[4]||null);
 var storage = process.env.DATABASE_STORAGE;
 
-var Temas = require('./temas.js');
-exports.Temas = Temas;
+var Indices = require('./indices.js');
+exports.Indices = Indices;
 
 // Cargar Modelo ORM
 var sequelize = require('sequelize');

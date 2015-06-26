@@ -1,5 +1,5 @@
 var models = require('../models/models.js');
-var listaTemas = models.Temas.listaTemas;
+var listaIndices = models.Indices.listaIndices;
 
 exports.load = function (req, res, next, quizId) {
 	models.Quiz.find(quizId).then(function (quiz) {
@@ -79,7 +79,7 @@ exports.new = function (req, res) {
 	res.render('quizes/new', {
 		quiz: quiz,
 		errors: [],
-		temas: listaTemas
+		indices: listaIndices
 	});
 };
 
@@ -91,7 +91,7 @@ exports.create = function (req, res) {
 			res.render('quizes/new', {
 				quiz: quiz,
 				errors: err.errors,
-				temas: listaTemas
+				indices: listaIndices
 			});
 		} else {
 			//Guarda en DB los campos pregunta y respuesta de quiz
@@ -109,7 +109,7 @@ exports.edit = function (req, res) {
 	res.render('quizes/edit', {
 		quiz: quiz,
 		errors: [],
-		temas: listaTemas
+		indices: listaIndices
 	});
 };
 
@@ -123,7 +123,7 @@ exports.update = function (req, res) {
 			res.render('quizes/edit', {
 				quiz: req.quiz,
 				errors: err.errors,
-				temas: listaTemas
+				indices: listaIndices
 			});
 		} else {
 			req.quiz.save({
