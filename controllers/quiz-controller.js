@@ -86,7 +86,7 @@ exports.new = function (req, res) {
 exports.create = function (req, res) {
 	var quiz = models.Quiz.build(req.body.quiz);
 
-	res.send(quiz.validate());
+	res.send('Validación: ' + quiz.validate().toString() + ' ,,, quiz: ' +quiz.toString());
 
 //	quiz.validate().then(function (err) {
 //		if (err) {
