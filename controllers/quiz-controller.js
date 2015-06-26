@@ -86,6 +86,7 @@ exports.new = function (req, res) {
 exports.create = function (req, res) {
 	var quiz = models.Quiz.build(req.body.quiz);
 
+	//Parece ser que hay algún error con esta versión de sequelize al aplicar then() sobre validate().
 	var errors = quiz.validate();
 	if (errors) {
 		res.render('quizes/new', {
@@ -118,6 +119,7 @@ exports.update = function (req, res) {
 	req.quiz.respuesta = req.body.quiz.respuesta;
 	req.quiz.indice = req.body.quiz.indice;
 
+	//Parece ser que hay algún error con esta versión de sequelize al aplicar then() sobre validate().
 	var error = req.quiz.validate(); //.then(function (err) {;
 	if (error) {
 		res.render('quizes/edit', {
