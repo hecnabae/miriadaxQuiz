@@ -9,7 +9,7 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 
 // EJ9
-´var autoLogout = require('./mw/auto-logout');
+var autoLogout = require('./mw/auto-logout');
 
 var routes = require('./routes/index');
 
