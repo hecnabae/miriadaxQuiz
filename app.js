@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 });
 
 // EJ9
-//app.use(autoLogout());
+app.use(autoLogout());
 
 app.use('/', routes);
 
